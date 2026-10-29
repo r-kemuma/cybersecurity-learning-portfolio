@@ -45,53 +45,135 @@ flowchart LR
 
 ---
 
-##  The 6 Goals and 12 Requirements
+##  PCI DSS v4.0.1: Six Goals and 12 Principal Requirements
 
-PCI DSS organizes its 12 principal requirements into six security goals.
+PCI DSS v4.0.1 is structured into **six high-level security goals and 12 principal requirements**. Each principal requirement contains more detailed, numbered requirements and associated testing procedures.
+
+### Understanding the hierarchy
+
+| Level | Meaning | Example |
+|---|---|---|
+| **Level 1 — Security goal** | One of the six broad goals of the standard. | Goal 3: Maintain a Vulnerability Management Program |
+| **Level 2 — Principal requirement** | One of the 12 main requirement areas. | Requirement 6: Develop and Maintain Secure Systems and Software |
+| **Level 3 — Sub-requirement** | A more specific, numbered security requirement. | Requirement 6.2.4 |
+| **Level 4 — Testing procedures** | Procedures used to assess whether the applicable requirements are met. | Testing procedures associated with Requirement 6.2.4 |
+
+*Note: The examples illustrate the numbering hierarchy. Consult the official PCI DSS v4.0.1 standard for the complete wording, applicability, and testing procedures.*
+
+### Visual map: Six goals → 12 principal requirements
 
 ```mermaid
-mindmap
-  root((PCI DSS v4.0.1))
-    1. Build and Maintain Secure Networks
-      R1 Network security controls
-      R2 Secure configurations
-    2. Protect Account Data
-      R3 Protect stored account data
-      R4 Protect data in transit
-    3. Maintain a Vulnerability Management Program
-      R5 Protect against malware
-      R6 Develop and maintain secure systems
-    4. Implement Strong Access Control Measures
-      R7 Restrict access by business need
-      R8 Identify and authenticate users
-      R9 Restrict physical access
-    5. Regularly Monitor and Test Networks
-      R10 Log and monitor access
-      R11 Test security regularly
-    6. Maintain an Information Security Policy
-      R12 Support security with policies and programs
+flowchart TB
+    ROOT["PCI DSS v4.0.1"]
+
+    ROOT --> G1["GOAL 1<br/>Build and Maintain a Secure Network and Systems"]
+    ROOT --> G2["GOAL 2<br/>Protect Account Data"]
+    ROOT --> G3["GOAL 3<br/>Maintain a Vulnerability Management Program"]
+    ROOT --> G4["GOAL 4<br/>Implement Strong Access Control Measures"]
+    ROOT --> G5["GOAL 5<br/>Regularly Monitor and Test Networks"]
+    ROOT --> G6["GOAL 6<br/>Maintain an Information Security Policy"]
+
+    G1 --> R1["REQ 1<br/>Network Security Controls"]
+    G1 --> R2["REQ 2<br/>Secure Configurations"]
+
+    G2 --> R3["REQ 3<br/>Protect Stored Account Data"]
+    G2 --> R4["REQ 4<br/>Protect Cardholder Data in Transit"]
+
+    G3 --> R5["REQ 5<br/>Protect Against Malicious Software"]
+    G3 --> R6["REQ 6<br/>Secure Systems and Software"]
+
+    G4 --> R7["REQ 7<br/>Restrict Access by Business Need to Know"]
+    G4 --> R8["REQ 8<br/>Identify Users and Authenticate Access"]
+    G4 --> R9["REQ 9<br/>Restrict Physical Access"]
+
+    G5 --> R10["REQ 10<br/>Log and Monitor Access"]
+    G5 --> R11["REQ 11<br/>Test Security Regularly"]
+
+    G6 --> R12["REQ 12<br/>Maintain Information Security Policies and Programs"]
+
+    style ROOT fill:#17365d,color:#ffffff,stroke:#17365d
+    style G1 fill:#d9eaf7,color:#17365d,stroke:#5b9bd5
+    style G2 fill:#d9eaf7,color:#17365d,stroke:#5b9bd5
+    style G3 fill:#d9eaf7,color:#17365d,stroke:#5b9bd5
+    style G4 fill:#d9eaf7,color:#17365d,stroke:#5b9bd5
+    style G5 fill:#d9eaf7,color:#17365d,stroke:#5b9bd5
+    style G6 fill:#d9eaf7,color:#17365d,stroke:#5b9bd5
 ```
 
-### The 12 requirements in plain language
+### Goal 1 — Build and Maintain a Secure Network and Systems
 
-| # | Requirement | Practical meaning |
-|---|---|---|
-| 1 | Install and maintain network security controls | Use firewalls, network segmentation, and appropriate traffic controls. |
-| 2 | Apply secure configurations | Remove default passwords and unnecessary services. |
-| 3 | Protect stored account data | Minimize storage and render stored PAN unreadable. |
-| 4 | Protect data in transit with strong cryptography | Protect account data transmitted over open, public networks. |
-| 5 | Protect against malicious software | Prevent, detect, and address malware threats. |
-| 6 | Develop and maintain secure systems and software | Apply secure coding, patching, and vulnerability management practices. |
-| 7 | Restrict access by business need to know | Grant access according to job responsibilities and least privilege. |
-| 8 | Identify users and authenticate access | Use unique user IDs, strong authentication, and MFA where required. |
-| 9 | Restrict physical access | Protect facilities, payment devices, and physical media. |
-| 10 | Log and monitor all access | Maintain audit trails and monitor suspicious activity. |
-| 11 | Test security regularly | Conduct appropriate vulnerability scans, penetration tests, and change detection. |
-| 12 | Support security with policies and programs | Establish governance, risk management, awareness, and third-party oversight. |
+| Principal requirement | Official requirement title |
+|---|---|
+| **Requirement 1** | Install and Maintain Network Security Controls |
+| **Requirement 2** | Apply Secure Configurations to All System Components |
 
-**Practical connection:** Access reviews, privileged access management, least privilege, segregation of duties, audit evidence, and remediation tracking all support important security control objectives.
+**Focus:** Network security controls, segmentation, secure configurations, and removal of insecure defaults.
 
----
+### Goal 2 — Protect Account Data
+
+| Principal requirement | Official requirement title |
+|---|---|
+| **Requirement 3** | Protect Stored Account Data |
+| **Requirement 4** | Protect Cardholder Data with Strong Cryptography During Transmission Over Open, Public Networks |
+
+**Focus:** Data minimization, storage protection, cryptographic controls, and secure transmission.
+
+### Goal 3 — Maintain a Vulnerability Management Program
+
+| Principal requirement | Official requirement title |
+|---|---|
+| **Requirement 5** | Protect All Systems and Networks from Malicious Software |
+| **Requirement 6** | Develop and Maintain Secure Systems and Software |
+
+**Focus:** Malware protection, vulnerability remediation, secure development, code review, and application security.
+
+### Goal 4 — Implement Strong Access Control Measures
+
+| Principal requirement | Official requirement title |
+|---|---|
+| **Requirement 7** | Restrict Access to System Components and Cardholder Data by Business Need to Know |
+| **Requirement 8** | Identify Users and Authenticate Access to System Components |
+| **Requirement 9** | Restrict Physical Access to Cardholder Data |
+
+**Focus:** Least privilege, unique user identification, authentication, access reviews, and physical security.
+
+### Goal 5 — Regularly Monitor and Test Networks
+
+| Principal requirement | Official requirement title |
+|---|---|
+| **Requirement 10** | Log and Monitor All Access to System Components and Cardholder Data |
+| **Requirement 11** | Test Security of Systems and Networks Regularly |
+
+**Focus:** Logging, monitoring, vulnerability scanning, penetration testing, and detection of unauthorized changes.
+
+### Goal 6 — Maintain an Information Security Policy
+
+| Principal requirement | Official requirement title |
+|---|---|
+| **Requirement 12** | Support Information Security with Organizational Policies and Programs |
+
+**Focus:** Security governance, risk assessments, awareness, incident response, and third-party service-provider management.
+
+### Understanding PCI DSS requirement numbering
+
+PCI DSS uses hierarchical identifiers to distinguish principal requirements from more detailed controls.
+
+| Identifier | What it means |
+|---|---|
+| **6** | Principal Requirement 6 |
+| **6.2** | A specific requirement area within Requirement 6 |
+| **6.2.4** | A more detailed requirement within Requirement 6.2 |
+| **11.6.1** | A detailed requirement under Requirement 11, concerning payment-page change and tamper detection |
+
+The applicable testing procedures and any sub-requirement suffixes must be checked against the official PCI DSS v4.0.1 document.
+
+### Key distinction
+
+**Six goals organize the standard. Twelve principal requirements define its main security domains. Sub-requirements provide more specific requirements that can be assessed and tested.**
+
+PCI DSS v4.0.1 was published in June 2024 as a limited revision of v4.0. It did not add or remove principal requirements.
+
+**Official reference:** [PCI SSC Document Library — PCI DSS v4.0.1](https://www.pcisecuritystandards.org/document_library/)
 
 ##  Scope: What Is In and What Is Out?
 
