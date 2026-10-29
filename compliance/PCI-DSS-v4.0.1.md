@@ -32,10 +32,10 @@ The standard is maintained by the **PCI Security Standards Council (PCI SSC)**. 
 
 ```mermaid
 flowchart LR
-    A["👤 Cardholder"] -->|Card payment| B["🏪 Merchant"]
-    B --> C["🔁 Payment Processor"]
-    C --> D["🏦 Card Network"]
-    D --> E["🏛️ Issuing Bank"]
+    A["Cardholder"] -->|Card payment| B["Merchant"]
+    B --> C["Payment Processor"]
+    C --> D["Card Network"]
+    D --> E["Issuing Bank"]
 
     style B fill:#ffe0b2,stroke:#e0a050,color:#222
     style C fill:#ffe0b2,stroke:#e0a050,color:#222
